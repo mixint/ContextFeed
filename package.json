@@ -1,0 +1,16 @@
+{
+  "name": "@mixint/ContextFeed",
+  "version": "1.0.0",
+  "description": "A readable stream for real-time updates of file changes + stats in a given directory",
+  "main": "ContextFeed.js",
+  "scripts": {
+    "test": "node examples/simpleFeed.js",
+    "debug": "env NODE_DEBUG=ContextFeed node examples/simpleFeed.js"
+  },
+  "repository": "https://github.com/mixint/ContextFeed.git",
+  "author": "Colten Jackson <jazzyjackson@gmail.com>",
+  "license": "SEE LICENSE IN CONTINUITY.LICENSE",
+  "dependencies": {
+    "@mixint/extrastat": "^1.0.0"
+  }
+}
