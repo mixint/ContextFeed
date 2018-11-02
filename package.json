@@ -2,7 +2,7 @@
   "name": "@mixint/contextfeed",
   "version": "1.0.3",
   "description": "A readable stream for real-time updates of file changes + stats in a given directory",
-  "main": "ContextFeed.js",
+  "main": "./bin/ContextFeed.js",
   "scripts": {
     "test": "node examples/simpleFeed.js",
     "debug": "env NODE_DEBUG=ContextFeed node examples/simpleFeed.js"
@@ -11,6 +11,13 @@
   "author": "Colten Jackson <jazzyjackson@gmail.com>",
   "license": "SEE LICENSE IN CONTINUITY.LICENSE",
   "dependencies": {
-    "@mixint/extrastat": "1.0.0"
+    "@mixint/extrastat": "1.0.0",
+    "@mixint/transflect": "^0.6.3"
+  },
+  "config": {
+    "Object2HTML": {
+      "prefix": "./conf/prepend.htmlx.json",
+      "template":   "./conf/merge.htmlx.json"
+    }
   }
 }

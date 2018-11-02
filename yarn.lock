@@ -2,7 +2,31 @@
 # yarn lockfile v1
 
 
-"@mixint/extrastat@^1.0.0":
+"@mixint/extrastat@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@mixint/extrastat/-/extrastat-1.0.0.tgz#1246e5e10e1786b98e7a277d531c5c0b6b45c3a0"
   integrity sha512-6MAqonb1w2R9tj8MaIxHc68b3m53385oWxiyczVxVeNuiMUHExAHocw/M65g0uWngVpYh8XJId67eFS76LqeIA==
+
+"@mixint/transflect@^0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@mixint/transflect/-/transflect-0.6.3.tgz#dc08e9898a1a11b90ddbd81dfa80973faa746b7d"
+  integrity sha512-Otx62/7HZB31BItIv+6xOnhiKQtFpyQfyE1HMiEvg7s7b0cAqQDwWS7ibladsbytJXnbTv9nN61lL8DjfZu6CQ==
+  dependencies:
+    parsedmessage "3.0.1"
+    serverfailsoft "2.0.2"
+    streamverbose "0.2.1"
+
+parsedmessage@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/parsedmessage/-/parsedmessage-3.0.1.tgz#1e9aa3785cb8511dc72295d46a5d1a76e6afb043"
+  integrity sha512-6nUqDz6biYZYeW8pKbR6pFunv3u3mgQjjtR2LOPi7xJAv2wc40DgIfLa8oWMOKOB6ZXlsCrtMVgGiYn0nf7kwg==
+
+serverfailsoft@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/serverfailsoft/-/serverfailsoft-2.0.2.tgz#b091a65253b059ed089ad73e41295689fa38cdd0"
+  integrity sha512-1M0ZdNxeVZ2FZCNDMVArcK8JU2jtkfCggeAHxPJX9VTk4h5W4UQJY9gbOJQ9yJbZdvyUKXdhSwaMR55Ft8o3jQ==
+
+streamverbose@0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/streamverbose/-/streamverbose-0.2.1.tgz#4e5ad08b24583ce5c863bb24c31cb8d162942d86"
+  integrity sha512-3S33voWb2t46hy0qxdShft9tCIvjMwiu82HqLOVwHpmpOHIe3pUFL1DJU4rg7Xk7OwWC0ZQSH158tNCg9quydw==

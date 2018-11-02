@@ -1,4 +1,4 @@
-const ContextFeed = require('../ContextFeed.js')
+const ContextFeed = require('../bin/StatStream.js')
 const {Transform} = require('stream')
 const os = require('os')
 
