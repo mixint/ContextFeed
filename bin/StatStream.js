@@ -114,7 +114,7 @@ module.exports = class StatStream extends stream.Readable {
             let filename = this.pathArray.pop()
             extraStat(path.join(this.pathname, filename), (error, stat) => {
                 debug(
-                    `extraStat finished, ${err ? `Err being pushed.` : `Stat being pushed.`}`
+                    `extraStat finished, ${error ? `Err being pushed.` : `Stat being pushed.`}`
                 )
                 /*
                  * if pushStat was called while paused, resume.
@@ -122,10 +122,10 @@ module.exports = class StatStream extends stream.Readable {
                  */
                 if(this.isPaused()){ this.resume() }
                 if(error){
-                    this.push(error) && this.pushStat() : this.pause()
+                    this.push(error) ? this.pushStat() : this.pause()
                 } else {
                     Object.assign(stat, {filename})
-                    this.push(stat) && this.pushStat() : this.pause()
+                    this.push(stat) ? this.pushStat() : this.pause()
                 }
             })
         }
