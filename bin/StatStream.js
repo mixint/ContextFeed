@@ -50,7 +50,9 @@ module.exports = class StatStream extends stream.Readable {
     arrayReady(){
         debug(
             `arrayReady called. this.readyState is ${this.readystate},` +
-            ``
+            `2 means no work needs to be done, move on...`              +
+            `1 means calls have been made, work is ongoing, wait...`    +
+            `0 (reached via else) means work has not begun, so begin it!`
         )
         if(this.readystate == 2) return true
         if(this.readystate == 1) return false
@@ -60,6 +62,7 @@ module.exports = class StatStream extends stream.Readable {
             withFileTypes: true
         }, (error, DirentArray) => {
             this.readystate = 2
+            if(error) return this.destroy(error)
             debug(
                 `ReadDir finished. ${DirentArray.length} entries. Sorting and adding '.' + '..'`
             )
@@ -71,6 +74,7 @@ module.exports = class StatStream extends stream.Readable {
              * access each Dirent[Symbole(type)] to sort files from 0 -> 7
              * 0: Unknown, 1: File, 2: Directory, 3: Link, 4: FIFO, 5: Socket, 6: Char Device, 7: Block device
              * Once sorted, extract .name and add '..' + '.' to the end of the array for 'ls -a' effect.
+             * This array is in reverse order of how they will appear, as I'm about to .pop() them one by one.
              */
             this.pathArray = DirentArray
                 .sort((a,b) => a[kType] - b[kType]) 
@@ -99,19 +103,18 @@ module.exports = class StatStream extends stream.Readable {
     pushStat(){
         if(this.pathArray.length == 0){
             debug(
-                `pushStat called, pathArray is empty. keepAlive is ${Boolean(this.options.keepAlive)}, ` +
-                `${this.options.keepAlive ? `pausing ContextFeed.` : `ending ContextFeed.`}`
+                `pushStat called, pathArray is empty. keepAlive is ` +
+                `${this.options.keepAlive ? `true, pausing ContextFeed.` 
+                                          : `false, ending ContextFeed.`}`
             )
-            if(this.options.keepAlive){
-                this.pause()
-            } else {
-                this.push(null)
-            }
+            this.options.keepAlive ? this.pause()
+                                   : this.push(null)
+
         } else {
             debug(
                 `pushStat called, pathArray has ${this.pathArray.length} entries.`
             )
-            let filename = this.pathArray.pop()
+            var filename = this.pathArray.pop()
             extraStat(path.join(this.pathname, filename), (error, stat) => {
                 debug(
                     `extraStat finished, ${error ? `Err being pushed.` : `Stat being pushed.`}`

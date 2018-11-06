@@ -4,6 +4,7 @@ const Object2JSON = require('./Object2JSON')
 const StatStream = require('./StatStream')
 const stream = require('stream')
 const Transfect = require('@mixint/transflect')
+const debug = require('util').debuglog("ContextFeed")
 
 /**
  *
@@ -24,22 +25,26 @@ module.exports = class ContextFeed extends Transfect {
         debug(
             `Opening ContextFeed, checking ContentType and creating StatStream`
         )
-        let ContentType = source.headers.accept
+        let ContentType = source.headers.accept.split(',')
+        console.log("ContentType", ContentType) // could be accept.split(',')...
         let keepAlive = ContentType != 'application/json'
         let StatObjects = new StatStream(source.pathname, {keepAlive})
         debug(
             `ContentType is ${ContentType}, keepAlive is ${keepAlive},` +
             `Choosing relevant stream transform (defaults to text/html).`
         )
-        switch(ContentType){
-            case 'text/event-stream':
-                return this.stream = StatObjects.pipe(Object2SSE)
-            case 'application/json':
-                return this.stream = StatObjects.pipe(Object2JSON)
-            case 'text/html':
-            default:
-                return this.stream = StatObjects.pipe(Object2HTML)
-        }
+
+        return this.stream = StatObjects.pipe(new Object2HTML)
+
+        // switch(ContentType){
+        //     // case 'text/event-stream':
+        //     //     return this.stream = StatObjects.pipe(Object2SSE)
+        //     // case 'application/json':
+        //     //     return this.stream = StatObjects.pipe(Object2JSON)
+        //     case 'text/html':
+        //     default:
+        //         return this.stream = StatObjects.pipe(new Object2HTML)
+        // }
     }
 
     /**

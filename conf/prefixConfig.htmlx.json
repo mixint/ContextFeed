@@ -1,0 +1,21 @@
+{"div": {
+	"id": "upload-form",
+	"childNodes": [
+		{"form": {
+			"action": "PUT",
+			"childNodes": [
+				{"label": {
+
+				}},
+				{"input": {
+					"type": "text",
+					"name": "filename"
+				}},
+				{"input": {
+					"type": "file",
+					"name": "bytes"
+				}}
+			]
+		}}
+	]
+}}

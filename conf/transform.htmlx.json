@@ -1,0 +1,20 @@
+{"table": {
+	"childNodes": [
+		{"tr": {
+			"childNodes": [
+				{"td": {
+					"textContent": "{{filename}}"
+				}},
+				{"td": {
+					"textContent": "{{filestat.size}}"
+				}},
+				{"td": {
+					"textContent": "{{filemode}}"
+				}},
+				{"td": {
+					"textContent": "{{mimetype}}"
+				}}
+			]
+		}}
+	]
+}}

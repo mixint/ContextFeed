@@ -4,20 +4,14 @@
   "description": "A readable stream for real-time updates of file changes + stats in a given directory",
   "main": "./bin/ContextFeed.js",
   "scripts": {
-    "test": "node examples/simpleStatStream.js",
-    "debug": "env NODE_DEBUG=ContextFeed node examples/simpleFeed.js"
+    "start": "node examples/simpleFeed",
+    "test": "node examples/simpleStatStream.js"
   },
   "repository": "https://github.com/mixint/ContextFeed.git",
   "author": "Colten Jackson <jazzyjackson@gmail.com>",
   "license": "SEE LICENSE IN CONTINUITY.LICENSE",
   "dependencies": {
     "@mixint/extrastat": "1.0.0",
-    "@mixint/transflect": "^0.6.3"
-  },
-  "config": {
-    "Object2HTML": {
-      "prefix": "./conf/prepend.htmlx.json",
-      "template":   "./conf/merge.htmlx.json"
-    }
+    "@mixint/transflect": "0.6.3"
   }
 }
