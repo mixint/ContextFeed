@@ -26,7 +26,6 @@ module.exports = class ContextFeed extends Transfect {
             `Opening ContextFeed, checking ContentType and creating StatStream`
         )
         let ContentType = source.headers.accept.split(',')
-        console.log("ContentType", ContentType) // could be accept.split(',')...
         let keepAlive = ContentType != 'application/json'
         let StatObjects = new StatStream(source.pathname, {keepAlive})
         debug(

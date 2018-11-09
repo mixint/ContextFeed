@@ -100,6 +100,7 @@ module.exports = class StatStream extends stream.Readable {
         })
     }
 
+
     pushStat(){
         if(this.pathArray.length == 0){
             debug(

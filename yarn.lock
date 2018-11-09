@@ -7,14 +7,36 @@
   resolved "https://registry.yarnpkg.com/@mixint/extrastat/-/extrastat-1.0.0.tgz#1246e5e10e1786b98e7a277d531c5c0b6b45c3a0"
   integrity sha512-6MAqonb1w2R9tj8MaIxHc68b3m53385oWxiyczVxVeNuiMUHExAHocw/M65g0uWngVpYh8XJId67eFS76LqeIA==
 
-"@mixint/transflect@^0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@mixint/transflect/-/transflect-0.6.3.tgz#dc08e9898a1a11b90ddbd81dfa80973faa746b7d"
-  integrity sha512-Otx62/7HZB31BItIv+6xOnhiKQtFpyQfyE1HMiEvg7s7b0cAqQDwWS7ibladsbytJXnbTv9nN61lL8DjfZu6CQ==
+"@mixint/formidable@1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@mixint/formidable/-/formidable-1.2.2.tgz#4029eae0e6cf90180c81b2f7d698b954b295d41c"
+  integrity sha512-lXxXHZVCCMtEL1gqjP5zNo88Sm0vsTgeQrcxSCYpdxcGJrH25bd18mHlVO8IsIzKE0AhexvdIW0KepUMe6WLTg==
+
+"@mixint/transflect@0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@mixint/transflect/-/transflect-0.6.4.tgz#739d24492e01128548d1d6c9c7f451562db531cf"
+  integrity sha512-/KY3s1sD+qU02FTHvQjXKxuOD8YBl0UnPI3JVEtHteTa7xUr0SSDriorUD0MGlSKu5WjHg4v0OEwZCgfKXSlSg==
   dependencies:
     parsedmessage "3.0.1"
     serverfailsoft "2.0.2"
     streamverbose "0.2.1"
+
+"@mixint/writepipette@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@mixint/writepipette/-/writepipette-0.2.0.tgz#17780466ff4d9d6f2c69a6eb9662a7dfc89117b9"
+  integrity sha512-M2nUl8IXJBSct6Z7iGiYg9zyuUr4QFIsDSDL9fs5IcTzyOtZ4VdY/a7RhfbsSZncUsp75xp/uOgyxL0zjywieg==
+  dependencies:
+    "@mixint/extrastat" "1.0.0"
+    "@mixint/formidable" "1.2.2"
+    "@mixint/transflect" "0.6.4"
+    ctxify "^0.2.0"
+    parsedmessage "3.0.1"
+    serverfailsoft "2.0.2"
+
+ctxify@0.2.0, ctxify@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ctxify/-/ctxify-0.2.0.tgz#904162b0b6531c3e701313d6d247c55269beb76a"
+  integrity sha512-w5goNc7s8wR+cV/K0Z9GzYdWCHiOIj6CK93wFk3vdinCKTLecA38vVzhsbHhyMi9OB+C3f8wBkytEPzUZqZ+dw==
 
 parsedmessage@3.0.1:
   version "3.0.1"

@@ -1,18 +1,22 @@
 {"table": {
+	"id": "{{newRandomID}}",
 	"childNodes": [
 		{"tr": {
 			"childNodes": [
 				{"td": {
-					"textContent": "{{filename}}"
-				}},
-				{"td": {
-					"textContent": "{{filestat.size}}"
+					"childNodes": [{"a": {
+						"textContent": "{{filename}}",
+						"href": "{{pathname}}"
+					}}]
 				}},
 				{"td": {
 					"textContent": "{{filemode}}"
 				}},
 				{"td": {
 					"textContent": "{{mimetype}}"
+				}},
+				{"td": {
+					"textContent": "{{filestat.size}} bytes"
 				}}
 			]
 		}}

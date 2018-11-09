@@ -5,13 +5,17 @@
   "main": "./bin/ContextFeed.js",
   "scripts": {
     "start": "node examples/simpleFeed",
-    "test": "node examples/simpleStatStream.js"
+    "test": "node examples/simpleStatStream.js",
+    "debug": "env NODE_DEBUG=object2html node examples/simpleFeed"
   },
   "repository": "https://github.com/mixint/ContextFeed.git",
   "author": "Colten Jackson <jazzyjackson@gmail.com>",
   "license": "SEE LICENSE IN CONTINUITY.LICENSE",
   "dependencies": {
     "@mixint/extrastat": "1.0.0",
-    "@mixint/transflect": "0.6.3"
+    "@mixint/formidable": "1.2.2",
+    "@mixint/transflect": "0.6.4",
+    "@mixint/writepipette": "^0.2.0",
+    "ctxify": "0.2.0"
   }
 }

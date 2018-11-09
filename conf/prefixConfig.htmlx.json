@@ -2,18 +2,16 @@
 	"id": "upload-form",
 	"childNodes": [
 		{"form": {
-			"action": "PUT",
+			"method": "POST",
+			"enctype": "multipart/form-data",
 			"childNodes": [
-				{"label": {
-
-				}},
-				{"input": {
-					"type": "text",
-					"name": "filename"
-				}},
 				{"input": {
 					"type": "file",
-					"name": "bytes"
+					"name": "filename"
+				}},
+				{"button": {
+					"type": "submit",
+					"textContent": "Upload"
 				}}
 			]
 		}}

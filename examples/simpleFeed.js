@@ -1,10 +1,16 @@
-let ContextFeed = require('../bin/ContextFeed')
-let http = require('http')
+const ContextFeed = require('../bin/ContextFeed')
+const Transflect = require('@mixint/transflect')
+const WritePipette = require('@mixint/writepipette')
+const http = require('http')
+const fs = require('fs')
 
 http.createServer({
     IncomingMessage: require('parsedmessage'),
     ServerResponse: require('serverfailsoft'),
-}, (req, res) => {
-	console.log(req.headers)
-    req.pipe(new ContextFeed).pipe(res)
-}).listen(3000)
+}, (req, res) => ((route) => {
+	req.pipe(new route).pipe(res)
+})(
+	req.method == 'GET'  ? ContextFeed  :
+    req.method == 'POST' ? WritePipette :
+    					   Transflect
+)).listen(3000)
