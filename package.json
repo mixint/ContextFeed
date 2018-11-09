@@ -1,6 +1,6 @@
 {
   "name": "@mixint/contextfeed",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A readable stream for real-time updates of file changes + stats in a given directory",
   "main": "./bin/ContextFeed.js",
   "scripts": {
