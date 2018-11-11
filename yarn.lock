@@ -21,10 +21,10 @@
     serverfailsoft "2.0.2"
     streamverbose "0.2.1"
 
-"@mixint/writepipette@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@mixint/writepipette/-/writepipette-0.2.0.tgz#17780466ff4d9d6f2c69a6eb9662a7dfc89117b9"
-  integrity sha512-M2nUl8IXJBSct6Z7iGiYg9zyuUr4QFIsDSDL9fs5IcTzyOtZ4VdY/a7RhfbsSZncUsp75xp/uOgyxL0zjywieg==
+"@mixint/writepipette@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@mixint/writepipette/-/writepipette-0.2.1.tgz#57b6ab55188bfc156af907f6c1975c9b1577c25a"
+  integrity sha512-LYRxfHX8kpBgqLuiFUpfDTMdKbX8GNP0dLuj5hSi1Q11Z4F6FMOhfof5EK3SCOzg5g7fZ3qfDlDFYw8OlEqTkA==
   dependencies:
     "@mixint/extrastat" "1.0.0"
     "@mixint/formidable" "1.2.2"
