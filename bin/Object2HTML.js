@@ -1,11 +1,12 @@
 // all of this is loaded the first time its required, not every time its constructed
 const fs = require('fs')
+const path = require('path')
 const ctxify = require('ctxify')
 const stream = require('stream')
 const assert = require('assert')
 const debug  = require('util').debuglog('object2html')
 
-let prefixStyle = fs.readFileSync('./conf/prefixConfig.css')
+let prefixStyle = fs.readFileSync(path.resolve(__dirname, '../conf/prefixConfig.css'))
 let prefixConfig = require('../conf/prefixConfig.htmlx.json')
 let templateConfig = require('../conf/transform.htmlx.json')
 
