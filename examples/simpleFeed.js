@@ -11,4 +11,4 @@ http.createServer({
 	req.pipe(new route).pipe(res)
 })(
 	req.pathname.slice(-1) == '/' ? ContextFeed : BytePipette
-)).listen(3000)
+)).listen(process.env.PORT || 3000)
