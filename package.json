@@ -13,9 +13,10 @@
   "author": "Colten Jackson <jazzyjackson@gmail.com>",
   "license": "SEE LICENSE IN CONTINUITY.LICENSE",
   "dependencies": {
-    "@mixint/extrastat": "1.0.0",
+    "@mixint/bytepipette": "^1.1.0",
+    "@mixint/extrastat": "2.0.0",
     "@mixint/formidable": "1.2.2",
-    "@mixint/transflect": "0.6.4",
+    "@mixint/transflect": "0.7.0",
     "@mixint/writepipette": "0.2.1",
     "ctxify": "0.2.0"
   },

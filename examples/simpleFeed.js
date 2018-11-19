@@ -1,6 +1,6 @@
 const ContextFeed = require('../bin/ContextFeed')
 const Transflect = require('@mixint/transflect')
-const WritePipette = require('@mixint/writepipette')
+const BytePipette = require('@mixint/bytepipette')
 const http = require('http')
 const fs = require('fs')
 
@@ -10,7 +10,5 @@ http.createServer({
 }, (req, res) => ((route) => {
 	req.pipe(new route).pipe(res)
 })(
-	req.method == 'GET'  ? ContextFeed  :
-    req.method == 'POST' ? WritePipette :
-    					   Transflect
+	req.pathname.slice(-1) == '/' ? ContextFeed : BytePipette
 )).listen(3000)
