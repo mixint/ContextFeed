@@ -1,22 +1,61 @@
 {"table": {
 	"id": "{{newRandomID}}",
+	"class": "file",
 	"childNodes": [
 		{"tr": {
 			"childNodes": [
 				{"td": {
-					"childNodes": [{"a": {
-						"textContent": "{{filename}}",
-						"href": "{{pathname}}"
-					}}]
+					"id": "permissions",
+					"childNodes": [
+						{"div": {
+							"class":"owner mode",
+							"mode": "{{ownermode}}",
+							"childNodes": [
+								{"div":{"class":"read","textContent":"r"}},
+								{"div":{"class":"write","textContent":"w"}},
+								{"div":{"class":"execute","textContent":"x"}}	
+							]
+						}},
+						{"div": {
+							"class":"group mode",
+							"mode": "{{groupmode}}",
+							"childNodes": [
+								{"div":{"class":"read","textContent":"r"}},
+								{"div":{"class":"write","textContent":"w"}},
+								{"div":{"class":"execute","textContent":"x"}}		
+							]
+						}},
+						{"div": {
+							"class":"world mode",
+							"mode": "{{worldmode}}",
+							"childNodes": [
+								{"div":{"class":"read","textContent":"r"}},
+								{"div":{"class":"write","textContent":"w"}},
+								{"div":{"class":"execute","textContent":"x"}}
+							]
+						}}
+					]
 				}},
 				{"td": {
-					"textContent": "{{filemode}}"
+					"childNodes": [
+						{"a": {
+							"textContent": "{{filename}}",
+							"href": "{{pathname}}"
+						}}
+					]
+				}},
+				{"td": {
+					"textContent": "{{filestat.uid}}"
+				}},
+				{"td": {
+					"textContent": "{{filestat.gid}}"
 				}},
 				{"td": {
 					"textContent": "{{mimetype}}"
 				}},
 				{"td": {
-					"textContent": "{{filestat.size}} bytes"
+					"title": "{{filestat.size}} bytes",
+					"textContent": "{{readableSize}}"
 				}}
 			]
 		}}

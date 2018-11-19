@@ -1,6 +1,13 @@
+body {
+	background: #c9ffc9;
+}
+
 #upload-form {
     background: #c9ffc9;
-    margin:;
+}
+
+#upload-form table {
+	width: initial;
 }
 
 #upload-form form {
@@ -8,14 +15,65 @@
 	padding: 5px;
 }
 
-table {
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table.file, table.header {
 	width: 100%;
+	margin: 10px 0;
+	table-layout: fixed;
+	font-family: monospace;
 }
 
-td {
-	width: 20%;
+table.file td {
+	background: white;
+}
+table.file td, table.header td {
+	padding-left: 8px;
 }
 
-table:nth-child(2n) {
-    background: #f1eef7;
+
+
+table.file td#permissions {
+	width: 31px;
+	text-align: right;
+	background: initial;
+}
+
+table.header td#permission-header {
+	width: 31px;
+	text-align: right;
+	background: initial;
+}
+
+.user, .group, .others {
+	display: inline-block;
+    width: 10px;
+    text-align: center;
+}
+
+.mode {
+	display: inline-block;
+	background: black;
+}
+
+.read, .write, .execute {
+	visibility: hidden;
+	color: white;
+    height: 10px;
+    width: 10px;
+    line-height: 0.6;
+    text-align: center;
+}
+
+[mode*="r"] .read {
+	visibility: visible;
+}
+[mode*="w"] .write {
+	visibility: visible;
+}
+[mode*="x"] .execute {
+	visibility: visible;
 }

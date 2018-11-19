@@ -51,8 +51,9 @@ module.exports = class ContextFeed extends Transfect {
      * Gnarly backpressure handling is github issue #2 of mixint/Transflect
      */
     _end(done){
-        this.stream.on('data', data => {
-            this.push(data) || (this.stream.pause(), this.pipes.once('drain', () => this.stream.resume()))
-        }).on('error', done).on('end', done)
+        this.stream.pipe(this.pipes)
+        // this.stream.on('data', data => {
+        //     this.push(data) || (this.stream.pause(), this.pipes.once('drain', () => this.stream.resume()))
+        // }).on('error', done).on('end', done)
     }
 }

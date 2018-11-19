@@ -19,42 +19,48 @@ module.exports = class Object2HTML extends stream.Transform {
 		)
 		this.visibleDivs = {}
 
-		debug(
-			`Pushing the stylesheet from ../conf/prefixConfig.css`
-		)
-		this.push(ctxify({"head":{
-			"childNodes": [
-				{"style": {
-					"textContent": "{{prefixStyle}}"
-				}}, 
-				{"meta": {
-					"charset": "UTF-8"
-				}}
-			]
-		}}, { prefixStyle }))
-
-		debug(
-			`Pushing the HTML from ../conf/prefixConfig.htmlx.json, ` +
-			`which should be a form element to upload new files.`
-		)
-		this.push(ctxify(prefixConfig))
-
-		debug(
-			`setting up an interval to send a heartbeat HTML comment every 5 seconds`
-		)
-		this.heartbeat = setInterval(()=>{
-			this.push(`<!-- <3 -->\n`)
-		}, 5000)
-
 		this.on('pipe', source => {
+			// source.on('readable', () => {
+			process.nextTick(() => {
+				debug(
+					`Pushing the stylesheet from ../conf/prefixConfig.css`
+				)
+				this.push(ctxify({"head":{
+					"childNodes": [
+						{"style": {
+							"textContent": "{{prefixStyle}}"
+						}}, 
+						{"meta": {
+							"charset": "UTF-8"
+						}}
+					]
+				}}, { prefixStyle }))
+
+				debug(
+					`Pushing the HTML from ../conf/prefixConfig.htmlx.json, ` +
+					`which should be a form element to upload new files.`
+				)
+
+				this.push(ctxify(prefixConfig))
+
+				debug(
+					`setting up an interval to send a heartbeat HTML comment every 5 seconds`
+				)
+				this.heartbeat = setInterval(()=>{
+					this.push(`<!-- <3 -->\n`)
+				}, 5000)
+			})
 			source.on('error', error => {
-				debug(`Object2HTML's source has errored, destroying Object2HTML...`)
-				this.destroy()
+				console.log(`Object2HTML's source has errored, destroying Object2HTML...`)
+				this.destroy(error)
 			})
 		})
 	}
 
 	_transform(object, encoding, done){
+		debug(
+			`Received object with keys ${Object.keys(object)}`
+		)
 		let isError = object.errno !== undefined
 		let pathname = isError ? object.path : object.pathname
 		let visibledivID = this.visibleDivs[pathname]
@@ -70,11 +76,18 @@ module.exports = class Object2HTML extends stream.Transform {
 			}}))
 		}
 		if(isError === false){
-			let newRandomID = "x" + Math.random().toString(16).slice(2)
-			this.visibleDivs[pathname] = newRandomID // store newRandomID in this context
-			Object.assign(object, {newRandomID}) // merge newRandomID to be used with template
+			let newRandomID = `x${Math.random().toString(16).slice(2)}`
+			Object.assign(object, {
+				newRandomID,
+				ownermode: object.filemode.slice(0,3),
+				groupmode: object.filemode.slice(3,6),
+				worldmode: object.filemode.slice(6,9),
+				readableSize: this.readablize(object.filestat.size)
+			}) // merge newRandomID to be used with template
 			debug(`Assigned ${newRandomID} to ${pathname}, pushing HTML.`)
+			console.log(object)
 			this.push(ctxify(templateConfig, object)) // push stat table HTML
+			this.visibleDivs[pathname] = newRandomID // store newRandomID in this context
 		} else {
 			debug(`Deleting entry for ${pathname}`)
 			delete this.visibleDivs[pathname] // drop this pathname from local context
@@ -82,11 +95,22 @@ module.exports = class Object2HTML extends stream.Transform {
 		done()
 	}
 
-	_destroy(){
+	_destroy(error){
 		debug(
 			`Object2HTML is destroyed, clearing heartbeat.`
 		)
 		clearInterval(this.heartbeat)
+		error & this.emit('error', error)
+	}
+
+	readablize(bytes, decimals){
+		// thanks to stackoverflow.com/questions/15900485/
+		if(bytes == 0) return '0 Bytes'
+		var k = 1024,
+			dm = decimals <= 0 ? 0 : decimals || 2,
+	       	sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+	       	i = Math.floor(Math.log(bytes) / Math.log(k))
+	   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 	}
 }
 

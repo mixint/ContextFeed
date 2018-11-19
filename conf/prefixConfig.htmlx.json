@@ -1,17 +1,35 @@
-{"div": {
-	"id": "upload-form",
+{"table": {
+	"class": "header",
 	"childNodes": [
-		{"form": {
-			"method": "POST",
-			"enctype": "multipart/form-data",
+		{"tr": {
 			"childNodes": [
-				{"input": {
-					"type": "file",
-					"name": "filename"
+				{"td": {
+					"id": "permission-header",
+					"childNodes": [
+						{"div": {
+							"mode": "{{ownermode}}",
+							"childNodes": [
+								{"div":{"class":"user","textContent":"u"}},
+								{"div":{"class":"group","textContent":"g"}},
+								{"div":{"class":"others","textContent":"o"}}	
+							]
+						}}
+					]
 				}},
-				{"button": {
-					"type": "submit",
-					"textContent": "Upload"
+				{"td": {
+					"textContent": "filename"
+				}},
+				{"td": {
+					"textContent": "owner"
+				}},
+				{"td": {
+					"textContent": "group"
+				}},
+				{"td": {
+					"textContent": "mimetype"
+				}},
+				{"td": {
+					"textContent": "size"
 				}}
 			]
 		}}

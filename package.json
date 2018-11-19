@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node examples/simpleFeed",
     "test": "node examples/simpleStatStream.js",
+    "dev": "nodemon --exec npm start",
     "debug": "env NODE_DEBUG=object2html node examples/simpleFeed"
   },
   "repository": "https://github.com/mixint/ContextFeed.git",
@@ -17,5 +18,8 @@
     "@mixint/transflect": "0.6.4",
     "@mixint/writepipette": "0.2.1",
     "ctxify": "0.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
   }
 }

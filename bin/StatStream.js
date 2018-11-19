@@ -39,11 +39,12 @@ module.exports = class StatStream extends stream.Readable {
         this.arrayReady() ? this.pushStat() : this.pause()
     }
 
-    _destroy(){
+    _destroy(error){
         debug(
             `Destroy called.`
         )
         this.inotify && this.inotify.close()
+        error && this.emit('error', error)
     }
 
 
@@ -62,24 +63,27 @@ module.exports = class StatStream extends stream.Readable {
             withFileTypes: true
         }, (error, DirentArray) => {
             this.readystate = 2
+            console.log(error)
             if(error) return this.destroy(error)
             debug(
                 `ReadDir finished. ${DirentArray.length} entries. Sorting and adding '.' + '..'`
             )
-            /**
-             * extract `Symbol(type)` from any Dirent Object so I can use it as a key
-             */
-            const kType = Object.getOwnPropertySymbols(DirentArray[0])[0] // -> Symbol(type)
-            /**
-             * access each Dirent[Symbole(type)] to sort files from 0 -> 7
-             * 0: Unknown, 1: File, 2: Directory, 3: Link, 4: FIFO, 5: Socket, 6: Char Device, 7: Block device
-             * Once sorted, extract .name and add '..' + '.' to the end of the array for 'ls -a' effect.
-             * This array is in reverse order of how they will appear, as I'm about to .pop() them one by one.
-             */
-            this.pathArray = DirentArray
-                .sort((a,b) => a[kType] - b[kType]) 
-                .map(Dirent => Dirent.name)
-                .concat(['..','.'])
+            if(DirentArray.length > 0){
+                /**
+                 * extract `Symbol(type)` from any Dirent Object so I can use it as a key
+                 */
+                const kType = Object.getOwnPropertySymbols(DirentArray[0])[0] // -> Symbol(type)
+                /**
+                 * access each Dirent[Symbole(type)] to sort files from 0 -> 7
+                 * 0: Unknown, 1: File, 2: Directory, 3: Link, 4: FIFO, 5: Socket, 6: Char Device, 7: Block device
+                 * Once sorted, extract .name and add '..' + '.' to the end of the array for 'ls -a' effect.
+                 * This array is in reverse order of how they will appear, as I'm about to .pop() them one by one.
+                 */
+                this.pathArray = DirentArray
+                    .sort((a,b) => a[kType] - b[kType]) 
+                    .map(Dirent => Dirent.name)
+                    .concat(['..','.'])
+            }
 
             if(this.options.keepAlive){
                 debug(
