@@ -29,12 +29,14 @@ table.file, table.header {
 
 table.file td {
 	background: white;
+	max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 table.file td, table.header td {
 	padding-left: 8px;
 }
-
-
 
 table.file td#permissions {
 	width: 31px;
