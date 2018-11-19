@@ -17,10 +17,10 @@
   resolved "https://registry.yarnpkg.com/@mixint/extrastat/-/extrastat-1.0.0.tgz#1246e5e10e1786b98e7a277d531c5c0b6b45c3a0"
   integrity sha512-6MAqonb1w2R9tj8MaIxHc68b3m53385oWxiyczVxVeNuiMUHExAHocw/M65g0uWngVpYh8XJId67eFS76LqeIA==
 
-"@mixint/extrastat@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@mixint/extrastat/-/extrastat-2.0.0.tgz#fb69ba8e96da8b3eded6bf0662924d65aa30c8fe"
-  integrity sha512-0L1CXofargSfYu5nI/ebWyueiSxJ97TN48PGu1NysVfsBT72A/DIsgwUs+SaCWgXhNCgkyK5OLRflTpM7KH6/A==
+"@mixint/extrastat@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@mixint/extrastat/-/extrastat-2.0.1.tgz#4475e1d28e4d03827072adff5cd3c8007da09f13"
+  integrity sha512-iYBpmbyj+vLClF08Q4reaPesnUS0CxkWYMsgHTWTorHKt+vjJmGlcYW7BDWDQ+6Tq6/eKv0RMEjKZmPkD+25TA==
 
 "@mixint/formidable@1.2.2":
   version "1.2.2"
@@ -45,10 +45,19 @@
     serverfailsoft "2.0.2"
     streamverbose "0.2.1"
 
-"@mixint/writepipette@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@mixint/writepipette/-/writepipette-0.2.1.tgz#57b6ab55188bfc156af907f6c1975c9b1577c25a"
-  integrity sha512-LYRxfHX8kpBgqLuiFUpfDTMdKbX8GNP0dLuj5hSi1Q11Z4F6FMOhfof5EK3SCOzg5g7fZ3qfDlDFYw8OlEqTkA==
+"@mixint/transflect@0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@mixint/transflect/-/transflect-0.7.1.tgz#713722a547cbbe9aeb795c49d18f9f326b621e62"
+  integrity sha512-aJ3+7SjV/OIbdw6W7rqz5sdwcz5QI8OyLzSKJcR8tZq9pf+frwLGLBPTrH2loXj9AHb96Bm/q79MQSD7Uccfww==
+  dependencies:
+    parsedmessage "3.0.1"
+    serverfailsoft "2.0.2"
+    streamverbose "0.2.1"
+
+"@mixint/writepipette@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@mixint/writepipette/-/writepipette-0.2.2.tgz#5baa1a39439e4cab92df991969860ed1ac9a2edc"
+  integrity sha512-Zz3LR54W9GwsHBr2/NwGVkJzb3iEThM8uht9FeDNboNSCbI1Io9XsnOYXjXIIxVbc9W3Y7WVAU6hkayA+qwoNQ==
   dependencies:
     "@mixint/extrastat" "1.0.0"
     "@mixint/formidable" "1.2.2"

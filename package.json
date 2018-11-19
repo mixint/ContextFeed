@@ -14,10 +14,10 @@
   "license": "SEE LICENSE IN CONTINUITY.LICENSE",
   "dependencies": {
     "@mixint/bytepipette": "^1.1.0",
-    "@mixint/extrastat": "2.0.0",
+    "@mixint/extrastat": "2.0.1",
     "@mixint/formidable": "1.2.2",
-    "@mixint/transflect": "0.7.0",
-    "@mixint/writepipette": "0.2.1",
+    "@mixint/transflect": "0.7.1",
+    "@mixint/writepipette": "0.2.2",
     "ctxify": "0.2.0"
   },
   "devDependencies": {
