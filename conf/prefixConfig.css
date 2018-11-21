@@ -29,36 +29,21 @@ table.file, table.header {
 
 table.file td {
 	background: white;
-	max-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-table.file td, table.header td {
-	padding-left: 8px;
-}
 
-table.file td#permissions {
-	width: 31px;
+table.header td.permission-header {
+	width: 10%;
 	text-align: right;
 	background: initial;
 }
 
-table.header td#permission-header {
-	width: 31px;
-	text-align: right;
-	background: initial;
-}
-
-.user, .group, .others {
-	display: inline-block;
-    width: 10px;
-    text-align: center;
-}
-
-.mode {
-	display: inline-block;
+.owner.mode, .group.mode, .world.mode {
 	background: black;
+	float: left;
+    text-align: center;
 }
 
 .read, .write, .execute {
@@ -70,12 +55,23 @@ table.header td#permission-header {
     text-align: center;
 }
 
-[mode*="r"] .read {
+.r-- .read,
+.rw- .read,
+.r-x .read,
+.rwx .read {
 	visibility: visible;
 }
-[mode*="w"] .write {
+
+.-w- .write,
+.-wx .write,
+.rw- .write,
+.rwx .write {
 	visibility: visible;
 }
-[mode*="x"] .execute {
+
+.--x .execute,
+.-wx .execute,
+.rwx .execute,
+.r-x .execute {
 	visibility: visible;
 }

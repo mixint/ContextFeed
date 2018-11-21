@@ -5,11 +5,10 @@
 		{"tr": {
 			"childNodes": [
 				{"td": {
-					"id": "permissions",
+					"class":"filename",
 					"childNodes": [
 						{"div": {
-							"class":"owner mode",
-							"mode": "{{ownermode}}",
+							"class":"owner mode {{ownermode}}",
 							"childNodes": [
 								{"div":{"class":"read","textContent":"r"}},
 								{"div":{"class":"write","textContent":"w"}},
@@ -17,8 +16,7 @@
 							]
 						}},
 						{"div": {
-							"class":"group mode",
-							"mode": "{{groupmode}}",
+							"class":"group mode {{groupmode}}",
 							"childNodes": [
 								{"div":{"class":"read","textContent":"r"}},
 								{"div":{"class":"write","textContent":"w"}},
@@ -26,34 +24,36 @@
 							]
 						}},
 						{"div": {
-							"class":"world mode",
-							"mode": "{{worldmode}}",
+							"class":"world mode {{worldmode}}",
 							"childNodes": [
 								{"div":{"class":"read","textContent":"r"}},
 								{"div":{"class":"write","textContent":"w"}},
 								{"div":{"class":"execute","textContent":"x"}}
 							]
-						}}
-					]
-				}},
-				{"td": {
-					"childNodes": [
+						}},
 						{"a": {
 							"textContent": "{{filename}}",
+							"title": "{{pathname}}",
 							"href": "{{pathname}}"
 						}}
 					]
 				}},
 				{"td": {
-					"textContent": "{{filestat.uid}}"
+					"class":"ownername",
+					"title":"{{ownername}}'s uid is {{filestat.uid}}",
+					"textContent": "{{ownername}}"
 				}},
 				{"td": {
-					"textContent": "{{filestat.gid}}"
+					"class":"groupname",
+					"title":"{{groupname}}'s uid is {{filestat.gid}}",
+					"textContent": "{{groupname}}"
 				}},
 				{"td": {
+					"class":"mimetype",
 					"textContent": "{{mimetype}}"
 				}},
 				{"td": {
+					"class":"size",
 					"title": "{{filestat.size}} bytes",
 					"textContent": "{{readableSize}}"
 				}}

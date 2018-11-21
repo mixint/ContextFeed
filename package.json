@@ -14,7 +14,7 @@
   "license": "SEE LICENSE IN CONTINUITY.LICENSE",
   "dependencies": {
     "@mixint/bytepipette": "^1.1.0",
-    "@mixint/extrastat": "2.0.1",
+    "@mixint/extrastat": "3.0.2",
     "@mixint/formidable": "1.2.2",
     "@mixint/transflect": "0.7.1",
     "@mixint/writepipette": "0.2.2",
