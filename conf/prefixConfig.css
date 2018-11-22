@@ -1,77 +1,60 @@
-body {
-	background: #c9ffc9;
-}
 
-#upload-form {
-    background: #c9ffc9;
-}
-
-#upload-form table {
-	width: initial;
-}
-
-#upload-form form {
-	margin: 0;
-	padding: 5px;
-}
-
-table, tr, td {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-table.file, table.header {
+table {
 	width: 100%;
 	margin: 10px 0;
 	table-layout: fixed;
 	font-family: monospace;
 }
 
-table.file td {
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid black;
+}
+
+td.filename, td.ownername, td.groupname, td.mimetype, td.size {
 	background: white;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding-left: 3px;
 }
 
-table.header td.permission-header {
+/*table.header {
 	width: 10%;
 	text-align: right;
 	background: initial;
-}
+}*/
 
-.owner.mode, .group.mode, .world.mode {
+/*.owner.mode, .group.mode, .world.mode {
 	background: black;
 	float: left;
     text-align: center;
-}
+}*/
 
-.read, .write, .execute {
-	visibility: hidden;
-	color: white;
+td.ur,
+td.uw,
+td.ux,
+td.gr,
+td.gw,
+td.gx,
+td.or,
+td.ow,
+td.ox {
+	color: black;
     height: 10px;
     width: 10px;
     line-height: 0.6;
     text-align: center;
+    background: black;
 }
 
-.r-- .read,
-.rw- .read,
-.r-x .read,
-.rwx .read {
-	visibility: visible;
+td.relevant {
+	color: grey;
 }
 
-.-w- .write,
-.-wx .write,
-.rw- .write,
-.rwx .write {
-	visibility: visible;
+td.highlight {
+	color: white;
 }
 
-.--x .execute,
-.-wx .execute,
-.rwx .execute,
-.r-x .execute {
-	visibility: visible;
-}
+

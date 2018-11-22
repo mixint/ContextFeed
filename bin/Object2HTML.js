@@ -79,9 +79,7 @@ module.exports = class Object2HTML extends stream.Transform {
 			let newRandomID = `x${Math.random().toString(16).slice(2)}`
 			Object.assign(object, {
 				newRandomID,
-				ownermode: object.filemode.slice(0,3),
-				groupmode: object.filemode.slice(3,6),
-				worldmode: object.filemode.slice(6,9),
+				permission: this.getPermission(object.filemode, object.role),
 				readableSize: this.readablize(object.filestat.size)
 			}) // merge newRandomID to be used with template
 			debug(`Assigned ${newRandomID} to ${pathname}, pushing HTML.`)
@@ -101,6 +99,21 @@ module.exports = class Object2HTML extends stream.Transform {
 		)
 		clearInterval(this.heartbeat)
 		error & this.emit('error', error)
+	}
+
+	getPermission(readablemode, role){
+		let permissionarray = Array.from(readablemode)
+		return {
+			ur: permissionarray[0] == 'r' ? role == 'user'  ? 'highlight' : 'relevant' : 'hide',
+			uw: permissionarray[1] == 'w' ? role == 'user'  ? 'highlight' : 'relevant' : 'hide',
+			ux: permissionarray[2] == 'x' ? role == 'user'  ? 'highlight' : 'relevant' : 'hide',
+			gr: permissionarray[3] == 'r' ? role == 'group' ? 'highlight' : 'relevant' : 'hide',
+			gw: permissionarray[4] == 'w' ? role == 'group' ? 'highlight' : 'relevant' : 'hide',
+			gx: permissionarray[5] == 'x' ? role == 'group' ? 'highlight' : 'relevant' : 'hide',
+			or: permissionarray[6] == 'r' ? role == 'other' ? 'highlight' : 'relevant' : 'hide',
+			ow: permissionarray[7] == 'w' ? role == 'other' ? 'highlight' : 'relevant' : 'hide',
+			ox: permissionarray[8] == 'x' ? role == 'other' ? 'highlight' : 'relevant' : 'hide',
+		}
 	}
 
 	readablize(bytes, decimals){

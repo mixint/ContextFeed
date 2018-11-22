@@ -4,33 +4,13 @@
 	"childNodes": [
 		{"tr": {
 			"childNodes": [
-				{"td": {
+				{"td":{"class":"ur {{permission.ur}}","textContent":"r"}},
+				{"td":{"class":"gr {{permission.gr}}","textContent":"r"}},
+				{"td":{"class":"or {{permission.or}}","textContent":"r"}},
+				{"td":{
 					"class":"filename",
+					"rowspan":"3",
 					"childNodes": [
-						{"div": {
-							"class":"owner mode {{ownermode}}",
-							"childNodes": [
-								{"div":{"class":"read","textContent":"r"}},
-								{"div":{"class":"write","textContent":"w"}},
-								{"div":{"class":"execute","textContent":"x"}}	
-							]
-						}},
-						{"div": {
-							"class":"group mode {{groupmode}}",
-							"childNodes": [
-								{"div":{"class":"read","textContent":"r"}},
-								{"div":{"class":"write","textContent":"w"}},
-								{"div":{"class":"execute","textContent":"x"}}		
-							]
-						}},
-						{"div": {
-							"class":"world mode {{worldmode}}",
-							"childNodes": [
-								{"div":{"class":"read","textContent":"r"}},
-								{"div":{"class":"write","textContent":"w"}},
-								{"div":{"class":"execute","textContent":"x"}}
-							]
-						}},
 						{"a": {
 							"textContent": "{{filename}}",
 							"title": "{{pathname}}",
@@ -40,23 +20,41 @@
 				}},
 				{"td": {
 					"class":"ownername",
+					"rowspan":"3",
 					"title":"{{ownername}}'s uid is {{filestat.uid}}",
 					"textContent": "{{ownername}}"
 				}},
 				{"td": {
 					"class":"groupname",
+					"rowspan":"3",
 					"title":"{{groupname}}'s uid is {{filestat.gid}}",
 					"textContent": "{{groupname}}"
 				}},
 				{"td": {
 					"class":"mimetype",
+					"rowspan":"3",
 					"textContent": "{{mimetype}}"
 				}},
 				{"td": {
 					"class":"size",
+					"rowspan":"3",
 					"title": "{{filestat.size}} bytes",
 					"textContent": "{{readableSize}}"
 				}}
+			]
+		}},
+		{"tr": {
+			"childNodes": [
+				{"td":{"class":"uw {{permission.uw}}","textContent":"w"}},
+				{"td":{"class":"gw {{permission.gw}}","textContent":"w"}},
+				{"td":{"class":"ow {{permission.ow}}","textContent":"w"}}
+			]
+		}},
+		{"tr": {
+			"childNodes": [
+				{"td":{"class":"ux {{permission.ux}}","textContent":"x"}},
+				{"td":{"class":"gx {{permission.gx}}","textContent":"x"}},
+				{"td":{"class":"ox {{permission.ox}}","textContent":"x"}}
 			]
 		}}
 	]
