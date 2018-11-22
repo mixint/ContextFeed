@@ -32,6 +32,10 @@ module.exports = class Object2HTML extends stream.Transform {
 						}}, 
 						{"meta": {
 							"charset": "UTF-8"
+						}},
+						{"meta": {
+							"name": "viewport",
+							"content": "width=1000, initial-scale=1.5"
 						}}
 					]
 				}}, { prefixStyle }))

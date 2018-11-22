@@ -7,3 +7,8 @@ This object stream is piped to a transform matching the requests's accept header
 That is, event-streams and html streams will continue watching for file changes. Once finished with its initial list, the keepAlive value is checked, and if true, heartbeats are sent every few seconds. (This should be configurable... I think I've seen some proxies start dropping connections after 2 seconds of no bytes. Chrome waits more like 30 or 60 seconds.) Event-Stream heartbeats are sent as `: <3` comments and HTML streams are fed `<!-- <3 -->` comments. 
 
 HTML is going to be a pretty dramatic trasformation involving sending a style header from file (good warmup for figjamfeed) and somehow merging the data structure with an html form...
+
+Run this socat tunnel to redirect traffic to a server running as someone other than root:
+```bash
+socat TCP-LISTEN:80,fork TCP:localhost:3000
+```
