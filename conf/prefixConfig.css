@@ -9,7 +9,6 @@ table {
 table, tr, td {
     border-collapse: collapse;
     border-spacing: 0;
-    border: 1px solid black;
 }
 
 td.filename, td.ownername, td.groupname, td.mimetype, td.size {
@@ -31,6 +30,17 @@ td.filename, td.ownername, td.groupname, td.mimetype, td.size {
 	float: left;
     text-align: center;
 }*/
+
+td.user, td.group, td.others {
+	width: 10px;
+	text-align: center;
+	background: black;
+	color: white;
+}
+
+tbody {
+	border: 1px solid black;
+}
 
 td.ur,
 td.uw,

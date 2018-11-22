@@ -3,19 +3,9 @@
 	"childNodes": [
 		{"tr": {
 			"childNodes": [
-				{"td": {
-					"id": "permission-header",
-					"childNodes": [
-						{"div": {
-							"mode": "{{ownermode}}",
-							"childNodes": [
-								{"div":{"class":"user","textContent":"u"}},
-								{"div":{"class":"group","textContent":"g"}},
-								{"div":{"class":"others","textContent":"o"}}	
-							]
-						}}
-					]
-				}},
+				{"td":{"class":"user","textContent":"u"}},
+				{"td":{"class":"group","textContent":"g"}},
+				{"td":{"class":"others","textContent":"o"}},
 				{"td": {
 					"textContent": "filename"
 				}},
