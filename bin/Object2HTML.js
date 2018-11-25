@@ -20,6 +20,7 @@ module.exports = class Object2HTML extends stream.Transform {
 		this.visibleDivs = {}
 
 		this.on('pipe', source => {
+			this.source = source
 			// source.on('readable', () => {
 			process.nextTick(() => {
 				debug(
@@ -103,7 +104,8 @@ module.exports = class Object2HTML extends stream.Transform {
 			`Object2HTML is destroyed, clearing heartbeat.`
 		)
 		clearInterval(this.heartbeat)
-		error & this.emit('error', error)
+		this.source && this.source.destroy && this.source.destroy()
+		error && this.emit('error', error)
 	}
 
 	getPermission(readablemode, role){
