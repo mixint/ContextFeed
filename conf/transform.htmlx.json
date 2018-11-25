@@ -4,9 +4,9 @@
 	"childNodes": [
 		{"tr": {
 			"childNodes": [
-				{"td":{"class":"ur {{permission.ur}}","textContent":"r"}},
-				{"td":{"class":"gr {{permission.gr}}","textContent":"r"}},
-				{"td":{"class":"or {{permission.or}}","textContent":"r"}},
+				{"td":{"class":"mode ur {{permission.ur}}","textContent":"r"}},
+				{"td":{"class":"mode gr {{permission.gr}}","textContent":"r"}},
+				{"td":{"class":"mode or {{permission.or}}","textContent":"r"}},
 				{"td":{
 					"class":"filename",
 					"rowspan":"3",
@@ -40,21 +40,27 @@
 					"rowspan":"3",
 					"title": "{{filestat.size}} bytes",
 					"textContent": "{{readableSize}}"
+				}},
+				{"td": {
+					"class":"mtime",
+					"rowspan":"3",
+					"title": "{{filestat.mtime}}",
+					"textContent": "{{readableDate}}"
 				}}
 			]
 		}},
 		{"tr": {
 			"childNodes": [
-				{"td":{"class":"uw {{permission.uw}}","textContent":"w"}},
-				{"td":{"class":"gw {{permission.gw}}","textContent":"w"}},
-				{"td":{"class":"ow {{permission.ow}}","textContent":"w"}}
+				{"td":{"class":"mode uw {{permission.uw}}","textContent":"w"}},
+				{"td":{"class":"mode gw {{permission.gw}}","textContent":"w"}},
+				{"td":{"class":"mode ow {{permission.ow}}","textContent":"w"}}
 			]
 		}},
 		{"tr": {
 			"childNodes": [
-				{"td":{"class":"ux {{permission.ux}}","textContent":"x"}},
-				{"td":{"class":"gx {{permission.gx}}","textContent":"x"}},
-				{"td":{"class":"ox {{permission.ox}}","textContent":"x"}}
+				{"td":{"class":"mode ux {{permission.ux}}","textContent":"x"}},
+				{"td":{"class":"mode gx {{permission.gx}}","textContent":"x"}},
+				{"td":{"class":"mode ox {{permission.ox}}","textContent":"x"}}
 			]
 		}}
 	]

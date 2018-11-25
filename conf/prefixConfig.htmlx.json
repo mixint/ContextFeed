@@ -20,6 +20,9 @@
 				}},
 				{"td": {
 					"textContent": "size"
+				}},
+				{"td": {
+					"textContent": "modified"
 				}}
 			]
 		}}

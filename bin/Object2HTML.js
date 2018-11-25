@@ -84,7 +84,8 @@ module.exports = class Object2HTML extends stream.Transform {
 			Object.assign(object, {
 				newRandomID,
 				permission: this.getPermission(object.filemode, object.role),
-				readableSize: this.readablize(object.filestat.size)
+				readableSize: this.readablizeBytes(object.filestat.size),
+				readableDate: this.readablizeDate(object.filestat.mtime)
 			}) // merge newRandomID to be used with template
 			debug(`Assigned ${newRandomID} to ${pathname}, pushing HTML.`)
 			console.log(object)
@@ -120,7 +121,7 @@ module.exports = class Object2HTML extends stream.Transform {
 		}
 	}
 
-	readablize(bytes, decimals){
+	readablizeBytes(bytes, decimals){
 		// thanks to stackoverflow.com/questions/15900485/
 		if(bytes == 0) return '0 Bytes'
 		var k = 1024,
@@ -128,6 +129,10 @@ module.exports = class Object2HTML extends stream.Transform {
 	       	sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
 	       	i = Math.floor(Math.log(bytes) / Math.log(k))
 	   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
+	}
+
+	readablizeDate(date){
+		return date > new Date().setHours(0,0,0,0) ? date.toLocaleTimeString() : date.toLocaleDateString()
 	}
 }
 
