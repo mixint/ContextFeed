@@ -89,7 +89,6 @@ module.exports = class Object2HTML extends stream.Transform {
 				readableDate: this.readablizeDate(object.filestat.mtime)
 			}) // merge newRandomID to be used with template
 			debug(`Assigned ${newRandomID} to ${pathname}, pushing HTML.`)
-			console.log(object)
 			this.push(ctxify(templateConfig, object)) // push stat table HTML
 			this.visibleDivs[pathname] = newRandomID // store newRandomID in this context
 		} else {

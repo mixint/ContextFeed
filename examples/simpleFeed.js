@@ -9,6 +9,7 @@ http.createServer({
     ServerResponse: require('serverfailsoft'),
 }, (req, res) => ((route) => {
 	req.pipe(new route).pipe(res)
+	console.log(req.connection.remoteAddress, req.method, req.url)
 })(
 	req.pathname.slice(-1) == '/' ? ContextFeed : BytePipette
 )).listen(process.env.PORT || 3000)

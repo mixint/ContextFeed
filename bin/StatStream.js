@@ -63,7 +63,6 @@ module.exports = class StatStream extends stream.Readable {
             withFileTypes: true
         }, (error, DirentArray) => {
             this.readystate = 2
-            console.log(error)
             if(error) return this.destroy(error)
             debug(
                 `ReadDir finished. ${DirentArray.length} entries. Sorting and adding '.' + '..'`
