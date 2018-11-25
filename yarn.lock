@@ -47,10 +47,10 @@
     serverfailsoft "2.0.2"
     streamverbose "0.2.1"
 
-"@mixint/transflect@0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@mixint/transflect/-/transflect-0.8.2.tgz#7f5600dae4030140e6c6c46d339d752c82d717da"
-  integrity sha512-55wmTXXgqn1SVoQsPEFb+LYkxKC5VjkjSWWTFyblgtcvgculDPCrjapG71xrJ/bzmS4SaWDm01kExSnuWApF1Q==
+"@mixint/transflect@0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@mixint/transflect/-/transflect-0.8.3.tgz#132aa606355ace8baa148ae29b39f2a070dab976"
+  integrity sha512-x3Ct+iyJHdTLCeEGG+8SD5jjRVMXj6C7cGAqxQUSj+mVRXdZD9fbkWjrAbVBQINBxg61mBDqEDSiF0fXF/nObw==
   dependencies:
     parsedmessage "3.1.0"
     serverfailsoft "2.1.1"
