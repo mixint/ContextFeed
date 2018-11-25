@@ -16,7 +16,7 @@
     "@mixint/bytepipette": "^1.1.0",
     "@mixint/extrastat": "3.0.3",
     "@mixint/formidable": "1.2.2",
-    "@mixint/transflect": "0.8.1",
+    "@mixint/transflect": "0.8.2",
     "@mixint/writepipette": "0.2.2",
     "ctxify": "0.2.0"
   },
